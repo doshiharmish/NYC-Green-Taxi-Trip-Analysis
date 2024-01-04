@@ -1,4 +1,5 @@
-# NYC Green Taxi Trip Analysis <https://colab.research.google.com/drive/1HxxpKTMb4ronSSNuCQ6ozPtX48lTV21V#scrollTo=f8RAkE7-g0uR>
+# NYC Green Taxi Trip Analysis 
+<https://colab.research.google.com/drive/1HxxpKTMb4ronSSNuCQ6ozPtX48lTV21V#scrollTo=f8RAkE7-g0uR>
 ## Project Overview
 
 This project aims to analyze the NYC Green Taxi Trip Data from January 2022 to January 2023. Historically, green Taxis in NYC, authorized for street-hail pickups outside the central business district and airports, were introduced to extend taxi services to underserved areas beyond Manhattan. Yellow Taxis, traditionally dominant in Manhattan and airport street-hail services, originally held exclusive rights in high-demand areas, but now share territories with Green Taxis, expanding the latter's reach. The primary focus in this project lies in utilizing machine learning techniques for regression and classification to achieve two key goals:
@@ -22,6 +23,28 @@ This project aims to analyze the NYC Green Taxi Trip Data from January 2022 to J
 
 3. **Holiday Dataset**: A new dataset was generated to explore trip details on holidays, working days, and weekends.
 ***Number of Holidays***: 23
+
+## Initial Data Distribution Analysis
+
+### 1. Trip Distance
+The trip distance distribution in this dataset reveals intriguing details. Across 908,613 entries, the average distance covered per trip amounts to 78.72 miles. The range extends from 0.00 miles to an astonishing maximum of 360,068.14 miles. Most of the data lies between 1.15 and 3.73 miles, while the median distance traveled is 2.00 miles.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/7ecbe12e-173c-453c-9349-a6f93bf2311b)
+
+
+### 2. Fare Amount
+The typical trip averages $15.39, ranging from -$350.08 to $2020.20. The bulk of the data falls within the $7.90 to $18.20 range, with a median cost of $11.50.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/a3e6d39d-ce09-4617-8540-dea21c47c4b6)
+
+
+### 3. Payment Mode
+
+The distribution analysis reveals that the primary payment method used is Credit Card, constituting 64% of the transactions, followed by Cash at 36%. Additionally, less than 1% of trips either were not charged or encountered disputes during payment.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/f27a3439-60a6-42f1-8287-0358db00954f)
+
+
 
 ## Data Preparation and Cleaning
 ### 1. Taxi Zone Integration
@@ -56,3 +79,86 @@ We extract additional DateTime features into new columns:
 
 ### 7. Congestion Surcharge Flagging
 Incorporating a flag to denote the presence of a congestion surcharge in the trip data.
+
+## Exploratory Data Analysis
+
+### 1. Vendor
+In New York, taxi services are offered by two vendors: Creative Mobile Technologies, LLC (Vendor 1) and VeriFone Inc. (Vendor 2). The data distribution indicates a substantial disparity in trip counts between the vendors, with Vendor 2 accounting for 87% of total trips. In comparison, Vendor 1 has a notably lower contribution with 13% of total trips.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/8018376d-927d-412a-96a1-5aa08c857caa)
+
+### 2. Rate Code
+Six different rate codes are utilized at the end of trips, with the most frequent being the Standard rate (71,000 trips), followed by the Negotiated rate code (22,179 trips). The JFK rate code was applied in 2,500 trips, whereas the "Newark and Nassau" or Westchester rate codes were least utilized.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/5086b5bb-242c-4cbb-ab63-b9038b1d5dd6)
+
+### 3. Hourly Distribution of Trip Counts
+The demand for taxi trips in New York City exhibits a distinctive pattern over a 24-hour cycle. Beginning with the morning rush, starting around 6:00 AM, demand gradually increases as commuters kickstart their day, steadily rising through the late morning. Peak demand surfaces in the late afternoon, predominantly between 4:00 PM and 6:00 PM, aligning with rush hour and the conclusion of the workday, indicating a surge in transportation needs. Following this peak, the evening witnessed a decrement in demand, gradually declining post-peak hours and notably diminishing during the late-night period, bottoming out around 4:00 AM to 5:00 AM, signifying the lowest point in trip counts during the day. This cyclical trend illustrates fluctuations in demand, mirroring the city's daily rhythms and commuter patterns.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/bc7d1d3b-404f-4002-b21e-669ca8f9d8bf)
+
+### 4. Trip Distance
+
+Following the data cleaning process, wherein trips with negative distances or excessive ones over 100 miles were filtered out, the dataset contained 740,737 entries. The average trip distance noticeably decreased to 2.99 miles. The trip distances now range from 0.01 miles to a maximum of 95.50 miles, and the majority of data lies between 1.28 and 3.60 miles, with the median distance being 2.03 miles.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/54d04c73-7b1e-4669-91a3-62a1423ca812)
+
+### 5. Fare Amount
+
+Following the removal of trips below the base fare of $3, the average trip cost decreased to $13.82, with a reduced standard deviation of $11.31. The cost range now spans from $3.50 to $499.00, with the majority of trips occurring within the $7.50 to $16.00 range. The median cost after cleaning is $10.50.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/55b615fa-262c-4b88-8926-48280fa64d69)
+
+### 6. Trip Time
+
+After filtering out trips with negative or excessive durations (over 180 minutes), the dataset underwent cleaning, resulting in 740,737 entries. The average trip duration decreased to approximately 14.95 minutes, with a reduced standard deviation of 11.87 minutes. The trip durations now range from 1.02 minutes to a maximum of 178.55 minutes. Most trips fall within the range of 7.75 to 18.32 minutes, with the median duration standing at 11.97 minutes. This cleaning process ensured a more accurate representation of trip durations within a reasonable timeframe for analysis.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/2133b353-191d-49fb-96e5-6331c70e9854)
+
+### 7. Trip distribution by Day
+
+The demand for cabs follows a fluctuating pattern throughout the week, starting from Monday (0) to Sunday (6). Wednesday (3) marks the peak demand with 117,543 trips, closely followed by Tuesday (2) and Thursday (4) with 114,668 and 114,479 trips, respectively. Monday (0) records a slightly lower demand at 103,797 trips, indicating a moderate start to the week. However, the demand gradually decreases towards the weekend, notably dropping by Saturday (5) and Sunday (6) to 96,623 and 82,432 trips, respectively. This pattern suggests higher demand during midweek, tapering off towards the weekend.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/97ab5608-0ccd-4095-993b-e3dae9dc8d7f)
+
+### 8. Number of Trips by Pickup and Dropoff LocationID
+
+- Pickup
+  ![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/4ba3f02e-a475-4275-a6cc-5c397d83315b)
+
+- Dropoff
+  ![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/7ed833ee-07c4-4958-9296-83fd487ca199)
+
+The analysis of cab demand reveals distinctive patterns across various neighborhoods in New York City. East Harlem North and South stand out as top pickup locations, exhibiting high demand, primarily attributed to their residential settings and cultural attractions. Similarly, Central Harlem, Morningside Heights, and Forest Hills also display substantial pickup interest. In terms of dropoff locations, East Harlem North and South, Central Harlem, and Upper East Side North are prominent, signifying frequent trip completions in these areas. These neighborhoods feature a mix of residential, commercial, and cultural elements, drawing diverse trip demands likely influenced by residential density, cultural landmarks, and commercial activity. East and West of Central Park, the Upper East and Upper West Sides boast affluent residential areas, while Morningside Heights showcases a university-centric landscape. Overall, the concentrated demand in specific neighborhoods underlines their unique characteristics, driving taxi usage trends in these distinct locales.
+
+### 9. Distance VS Fare Amount
+
+The fare amount typically corresponds to the distance covered during a trip, following a general pattern of increase. However, upon closer inspection, anomalies emerge within the dataset, notably instances where the fare amount significantly exceeds the expected cost for a specific distance. There were numerous trips where the fare amount spiked to as high as $500, despite the distance being relatively short, approximately 5-6 miles. These anomalies suggest potential irregularities or factors beyond distance influencing fare calculations, warranting further investigation into the specific conditions or variables contributing to these unusually high fares for comparatively short distances.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/f340ddba-a529-427e-aa6a-48193bb7d42e)
+
+### 10. Distance VS Pickup Hour
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/f9eb0f4a-5137-403c-98ac-c89787678016)
+
+The data predominantly clusters between trip distances of 1.28 and 3.60 miles. Interestingly, throughout the day, the average trip distance hovers around 3 to 3.5 miles. Notably, there's a consistent trend of trip distances increasing steadily from the early morning until the evening. However, during the early night hours and late night, there's a noticeable rise in the distance covered by taxi trips. This shift suggests changing travel patterns or preferences during different times of the day, potentially indicating longer rides or different travel behaviors among passengers during these hours.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/15ff1819-d66a-4211-8bad-dfb4c2943953)
+
+### 11. Fare Amount VS Week Day
+
+Throughout the week, the fare range shows a consistent upward trend, reaching its pinnacle on Saturday at $14.20. This escalation in fares might reflect increased demand, different travel patterns, or a higher volume of longer trips, especially on Saturdays.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/3bf38e49-6bb5-44c7-a9a9-815b68cdca1c)
+
+### 12. Tip Amount VS Hours
+
+There's a notable surge in tips around the 5th hour, followed by a decrease, stabilizing between $1.50 and $2.00 until approximately the 15th hour. Subsequently, there's a gradual rise in tip amounts, reaching a peak around the 20th hour. These fluctuations highlight varying tipping behaviors linked to the hour of pickup. 
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/0a300409-fcf0-4b80-a96d-99a8eb1597c1)
+
+### 13. Tip Amount VS Week Day
+
+Throughout the week, tips exhibit intriguing fluctuations relative to the days. Initially, there's a gradual increment observed from the start of the week Monday (day 0) to day 2 (Wednesday), followed by fluctuations between Wednesday and Friday. A noticeable surge in tip amounts becomes evident from day Friday to Sunday, signifying a substantial increase toward the week's end. This pattern suggests a trend of escalating tips as the week progresses, with higher tipping tendencies over the weekend.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/909aaf10-7153-4d63-ae2f-9783f1f78564)
