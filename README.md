@@ -1,5 +1,5 @@
 # NYC Green Taxi Trip Analysis 
-<https://colab.research.google.com/drive/1HxxpKTMb4ronSSNuCQ6ozPtX48lTV21V#scrollTo=f8RAkE7-g0uR>
+
 ## Project Overview
 
 This project aims to analyze the NYC Green Taxi Trip Data from January 2022 to January 2023. Historically, green Taxis in NYC, authorized for street-hail pickups outside the central business district and airports, were introduced to extend taxi services to underserved areas beyond Manhattan. Yellow Taxis, traditionally dominant in Manhattan and airport street-hail services, originally held exclusive rights in high-demand areas, but now share territories with Green Taxis, expanding the latter's reach. The primary focus in this project lies in utilizing machine learning techniques for regression and classification to achieve two key goals:
