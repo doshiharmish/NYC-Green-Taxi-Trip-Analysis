@@ -173,4 +173,19 @@ In the data preparation for regression, we designated the 'fare_amount' as the t
 
 ## Modeling
 
-Among the regression models implemented to predict fare amounts, KNN Regression performed the best with the lowest Mean Squared Error (9.71) and the highest R-squared (0.9248), indicating superior predictive accuracy. Decision Tree and Random Forest Regressor also showed competitive performance, with good R-squared values. Lasso Regression and Linear Regression, while delivering acceptable results, exhibited slightly higher Mean Squared Error and lower R-squared, suggesting a comparatively lower predictive accuracy. In summary, KNN Regression stands out as the top-performing model in this context, emphasizing its effectiveness in predicting fare amounts accurately.
+Here's a summary of the regression models implemented to predict fare amounts:
+
+- **KNN Regression**: The best-performing model with the lowest Mean Squared Error (9.91) and the highest R-squared (0.9233), indicating superior predictive accuracy. The Mean Absolute Error is also relatively low (1.24), suggesting good model performance.
+
+- **Random Forest Regressor**: Exhibits competitive performance with a lower Mean Squared Error (12.02) and a reasonably high R-squared (0.9069). The Mean Absolute Error is comparable to KNN Regression, indicating effective fare prediction.
+
+- **Decision Tree**: Performs well with a moderate Mean Squared Error (11.24) and a high R-squared (0.9129). The Mean Absolute Error is reasonable, suggesting accurate fare predictions.
+
+- **Linear Regression**: Shows acceptable performance with a higher Mean Squared Error (14.07) and a slightly lower R-squared (0.8910). The Mean Absolute Error is comparable to the Decision Tree, indicating reasonable predictive accuracy.
+
+- **Lasso Regression**: Performs similarly to Linear Regression with a higher Mean Squared Error (14.07) and a slightly lower R-squared (0.8910). The Mean Absolute Error is consistent with Linear Regression, suggesting acceptable predictive performance.
+
+In summary, KNN Regression stands out as the best-performing model, while Linear Regression and Lasso Regression exhibit relatively lower predictive accuracy compared to the other models. The performance metrics used (Mean Squared Error, R-squared, Mean Absolute Error) provide insights into the accuracy and reliability of the models in predicting fare amounts.
+
+
+
