@@ -46,7 +46,7 @@ The distribution analysis reveals that the primary payment method used is Credit
 
 
 
-## Data Preparation and Cleaning
+## Feature Engineering
 ### 1. Taxi Zone Integration
 Incorporating Taxi Zone data into our main trip dataset to augment information related to Pickup and Drop Boroughs and Zones.
 
@@ -162,3 +162,15 @@ There's a notable surge in tips around the 5th hour, followed by a decrease, sta
 Throughout the week, tips exhibit intriguing fluctuations relative to the days. Initially, there's a gradual increment observed from the start of the week Monday (day 0) to day 2 (Wednesday), followed by fluctuations between Wednesday and Friday. A noticeable surge in tip amounts becomes evident from day Friday to Sunday, signifying a substantial increase toward the week's end. This pattern suggests a trend of escalating tips as the week progresses, with higher tipping tendencies over the weekend.
 
 ![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/909aaf10-7153-4d63-ae2f-9783f1f78564)
+
+
+## Splitting Data & Dimension Reduction
+
+In the data preparation for regression, we designated the 'fare_amount' as the target variable 'y', and the remaining columns as features 'X'. Categorical variables such as 'VendorID', 'peak_hours', 'holiday_flag', 'pickup_dayofweek', and 'pickup_hour' were one-hot encoded to enhance machine learning model training. Subsequently, the dataset underwent a 60-40 split into training and testing sets for evaluation purposes. Additionally, we conducted dimensionality reduction on the independent variables, with the first three components capturing a significant portion of the overall variance in the dataset.
+
+![image](https://github.com/doshiharmish/NYC-Green-Taxi-Trip-Analysis/assets/16878994/a4c7a668-6897-4085-8f71-a18d81ed5666)
+
+
+## Modeling
+
+Among the regression models implemented to predict fare amounts, KNN Regression performed the best with the lowest Mean Squared Error (9.71) and the highest R-squared (0.9248), indicating superior predictive accuracy. Decision Tree and Random Forest Regressor also showed competitive performance, with good R-squared values. Lasso Regression and Linear Regression, while delivering acceptable results, exhibited slightly higher Mean Squared Error and lower R-squared, suggesting a comparatively lower predictive accuracy. In summary, KNN Regression stands out as the top-performing model in this context, emphasizing its effectiveness in predicting fare amounts accurately.
